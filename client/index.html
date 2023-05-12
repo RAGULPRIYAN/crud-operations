@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="style.css">
+    <title>APIFORM</title>
+</head>
+
+
+<body>
+    <div class="card">
+        <div class="row">
+
+            <div class=" center col-6">
+                <h1>Contact form</h1>
+                <form  class="card formstyle" id="my-form">
+                    <div class="row">
+                        <div class=" mt-5 col-4">
+                            <label for="name">Name:</label>
+                        </div>
+                        <div class=" mt-5 col-8">
+                            <input type="text" id="name" name="name" required>
+                            <span class="spantext" id="nameError">Please enter your Name</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" mt-5 col-4">
+                            <label for="email">Email:</label>
+                        </div>
+                        <div class="mt-5 col-8">
+                            <input type="text" id="email" name="email" required>
+                            <span class="spantext" id="emailError">Please enter your email</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" mt-5 col-4">
+                            <label for="subject">Subject:</label>
+                        </div>
+                        <div class="mt-5 col-8">
+                            <input type="text" id="subject" name="subject" required>
+                            <span class="spantext" id="subjectError">Please enter your subject</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mt-5 col-4">
+                            <label for="message">Message:</label>
+                        </div>
+                        <div class="mt-5 col-8">
+                            <textarea rows="4" cols="23" id="message" name="message" required></textarea>
+                            <span class="spantext" id="messageError">Please enter your message</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mt-5 col-4 "></div>
+                        <div class="mt-5 col-8 d-flex align-items-center justify-content-end form-button">
+                            <button type="submit" class="btn" id="submitBtn"  onclick="createuser()">Submit</button>
+                            <button type="submit" class="btn" id="updateBtn"  style="display: none;" onclick="updateUser()" >Update</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-6">
+                <div class="container">
+                    <h1 style="text-align: center;">Contact Table</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>S.no</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Actions</th>
+                                <!-- <th>message</th> -->
+                            </tr>
+                        </thead>
+                        <tbody id="mycontacttable">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- <form class="center"> -->
+    <!-- <input type="text" name="title" id="title">
+        <input type="text" name="body" id="body">
+        <input type="text" name="userid" id="userid">
+        <input type="text" name="emai" id="email"> -->
+
+
+
+
+
+    <!-- </div>
+      
+    </form> -->
+    <!-- </div> -->
+   
+    <!-- <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>username</th>
+                <th>email</th>
+            </tr>
+        </thead>
+        <tbody id="mymovietable"></tbody>
+    </table> -->
+    <!-- <script>
+        fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users =>{
+      html=""
+        users.forEach(e => {
+            html+=`<tr>
+                <td>
+                    ${e.id}
+                    </td>
+                <td>
+                    ${e.name}
+                    </td>
+                    <td>
+                    ${e.username}
+                    </td>
+            
+                    <td>
+                    ${e.email}
+                    </td>
+            </tr>`
+        });
+
+        document.getElementById("mymovietable").innerHTML=html;
+
+    })
+    </script> -->
+   <script src="./http.js"></script>
+</body>
+
+</html>

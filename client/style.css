@@ -1,0 +1,39 @@
+.center{
+    text-align: center;
+    background-color: wheat;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black;
+  }
+  
+  tr:nth-child(even) {
+    background-color: wheat;
+  }
+  .btn{
+    background-color: red;
+  }
+  .btn:hover{
+    background-color: blueviolet;
+  }
+  .spantext{
+    color: red;
+    display: none;
+  }
+  .formstyle{
+    /* border: 1px solid black; */
+  }
+
+  .pencil{
+    margin-right: 20px;
+  }
+  .form-button{
+    padding: 10px 90px;
+  }
