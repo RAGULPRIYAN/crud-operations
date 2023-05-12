@@ -21,28 +21,39 @@ app.get('/getusers/:id',(req,res)=>{
 
     connection.query(`select * from contact where id = ?`,[req.params.id], function (error, results) {
 
-        if(error);
+      if (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+        return;
+      }
+        else{
+        // res.end(JSON.stringify(results));
 
-        console.log('results'+ JSON.stringify(results));
+        res.json(results);
+        }
+
+        // console.log('results'+ JSON.stringify(results));
 
 
-        res.end(JSON.stringify(results));
+        // res.end(JSON.stringify(results));
 
       });
     });
 app.get('/getall', (req, res) => {
-  res.set('Content-Type', 'applicatio/json');
+  // res.set('Content-Type', 'applicatio/json');
   let sql =`select id,name,email,subject from contact where isdeleted = ?;`
   connection.query(sql,[0], function (error, results) {
 
     if (error) {
-
-    } else {
-      console.log('results' + JSON.stringify(results));
-      
-      res.end(JSON.stringify(results));
-
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
     }
+      else{
+      // res.end(JSON.stringify(results));
+
+      res.json(results);
+      }
 
 
 
@@ -54,13 +65,16 @@ app.get('/getall', (req, res) => {
     console.log(req.body)
     connection.query(`insert into contact (name,email,subject,message)values (?,?,?,?)`,[req.body.name,req.body.email,req.body.subject,req.body.message], function (error, results) {
 
-        if(error);
-        console.log(error)
-        console.log('results '+ JSON.stringify(results));
+      if (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+        return;
+      }
+        else{
+        // res.end(JSON.stringify(results));
 
-
-
-        res.end(JSON.stringify(results));
+        res.json(results);
+        }
 
       });
     })
@@ -69,12 +83,16 @@ app.get('/getall', (req, res) => {
 
       connection.query(`update  contact SET name=? ,email=?, subject=? ,message=? where id=?`,[req.body.name,req.body.email,req.body.subject,req.body.message,req.body.id], function (error, results) {
 
-          if(error);
-          console.log(error)
-          console.log('results '+ JSON.stringify(results));
-
-
-          res.end(JSON.stringify(results));
+        if (error) {
+          console.error(error);
+          res.status(500).json({ error: 'Internal server error' });
+          return;
+        }
+          else{
+          // res.end(JSON.stringify(results));
+  
+          res.json(results);
+          }
 
         });
       })
@@ -91,13 +109,15 @@ app.get('/getall', (req, res) => {
         connection.query(sql, [1, id], (error, results) => {
         
           if (error) {
-
-          } else {
-            console.log('results' + JSON.stringify(results));
-            
-            res.end(JSON.stringify(results));
-      
+            console.error(error);
+            res.status(500).json({ error: 'Internal server error' });
+            return;
           }
+            else{
+            // res.end(JSON.stringify(results));
+    
+            res.json(results);
+            }
         
         });
         

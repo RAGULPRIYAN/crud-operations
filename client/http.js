@@ -1,7 +1,8 @@
 window.onload = getAllUsers();
 let form = document.getElementById('my-form');
-let btn = document.getElementById('form-btn');
-let uniqueId ;
+// let btn = document.getElementById('form-btn');
+updateBtn = document.getElementById("updateBtn")
+// let uniqueId ;
 // btn.addEventListener("click",()=>{
 //   if(btn.textContent == "submit"){
 //     createuser();
@@ -72,6 +73,7 @@ if(isValid){
     .then((response) => response.json())
     .then((json) =>{
       getAllUsers();
+      form.reset();
       
       
     } );
@@ -113,7 +115,8 @@ function getAllUsers() {
     })
 }
 function edituser(id) {
-  uniqueId = id;
+  console.log(id)
+  // uniqueId = id;
   fetch(`http://localhost:3000/getusers/${id}`)
     .then((response) => response.json())
     .then((e) => {
@@ -126,6 +129,7 @@ function edituser(id) {
       // btn.textContent = "Update";
       submitBtn.style.display = 'none';
     updateBtn.style.display = 'block';
+    updateBtn.setAttribute("user-Id", id)
 
 
     });
@@ -152,6 +156,8 @@ function deleteuser(id) {
 }
 
 function updateUser() {
+  let id = updateBtn.getAttribute('user-Id');
+  console.log(id)
   
 
   fetch('http://localhost:3000/update', {
@@ -165,7 +171,7 @@ function updateUser() {
       email: document.getElementById("email").value,
       message: document.getElementById("message").value,
       subject: document.getElementById("subject").value,
-      id:uniqueId,
+      id:id,
     })
   })
     .then((response) => response.json())
